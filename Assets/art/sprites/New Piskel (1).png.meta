@@ -1,43 +1,28 @@
 fileFormatVersion: 2
-guid: 02aa14fa2b6ac7041a7ff24aa6d6859c
+guid: d7f8cd0d374186b408d08c436a0e160f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7013060320966725382
-    second: RetirmentRumbleTestSprites_0
+      213: -6888756438569675735
+    second: HpMeter
   - first:
-      213: -3712933915446570815
-    second: RetirmentRumbleTestSprites_1
+      213: 9173839873224666002
+    second: HpOrng
   - first:
-      213: -4929199297338864851
-    second: RetirmentRumbleTestSprites_2
+      213: -745645855993587873
+    second: HpRd
   - first:
-      213: 5213567422089682104
-    second: RetirmentRumbleTestSprites_3
+      213: 4123733795721074919
+    second: HpGrn
   - first:
-      213: 6284778026664109829
-    second: RetirmentRumbleTestSprites_4
+      213: -1753449832276896209
+    second: HpYlw
   - first:
-      213: -230828560502810815
-    second: RetirmentRumbleTestSprites_5
+      213: 3188600494121364513
+    second: HpPrpl
   - first:
-      213: -8871951396982099343
-    second: RetirmentRumbleTestSprites_6
-  - first:
-      213: 695638734151641816
-    second: RetirmentRumbleTestSprites_7
-  - first:
-      213: 298598025495993976
-    second: RetirmentRumbleTestSprites_8
-  - first:
-      213: -4323226250543553976
-    second: RetirmentRumbleTestSprites_9
-  - first:
-      213: -3169666729840458592
-    second: RetirmentRumbleTestSprites_10
-  - first:
-      213: -536515394287694172
-    second: RetirmentRumbleTestSprites_11
+      213: 393433629526434239
+    second: HpBlu
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -78,10 +63,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,7 +82,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -109,7 +94,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -121,7 +106,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -133,7 +118,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -145,7 +130,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -159,13 +144,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_0
+      name: HpMeter
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 64
-        height: 64
+        y: 16
+        width: 128
+        height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60fcb938435635160800000000000000
-      internalID: 7013060320966725382
+      spriteID: 9249ede64883660a0800000000000000
+      internalID: -6888756438569675735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_1
+      name: HpOrng
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
+        x: 1
+        y: 8
+        width: 32
+        height: 8
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c09e4f9642097cc0800000000000000
-      internalID: -3712933915446570815
+      spriteID: 29beed572c6005f70800000000000000
+      internalID: 9173839873224666002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_2
+      name: HpRd
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
+        x: 32
+        y: 8
+        width: 32
+        height: 8
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,125 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2b0307ea57f79bb0800000000000000
-      internalID: -4929199297338864851
+      spriteID: f5792496b0fe6a5f0800000000000000
+      internalID: -745645855993587873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 128
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bc543e92ff4a5840800000000000000
-      internalID: 5213567422089682104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 507ae7b2154083750800000000000000
-      internalID: 6284778026664109829
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 147173fa5aeebccf0800000000000000
-      internalID: -230828560502810815
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 172f956c53f70e480800000000000000
-      internalID: -8871951396982099343
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8da6c193eb767a900800000000000000
-      internalID: 695638734151641816
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_8
+      name: HpGrn
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 8
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,20 +221,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87e52587255d42400800000000000000
-      internalID: 298598025495993976
+      spriteID: 7e85a3ae9027a3930800000000000000
+      internalID: 4123733795721074919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_9
+      name: HpYlw
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26daafeaae7aa7e0800000000000000
+      internalID: -1753449832276896209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HpPrpl
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 8
+        width: 32
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12c2db6614f204c20800000000000000
+      internalID: 3188600494121364513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HpBlu
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 8
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,50 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84225bc61a0d004c0800000000000000
-      internalID: -4323226250543553976
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_10
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a44c7f17e41304d0800000000000000
-      internalID: -3169666729840458592
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_11
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ae04fa671aed88f0800000000000000
-      internalID: -536515394287694172
+      spriteID: fb1ad923dc1c57500800000000000000
+      internalID: 393433629526434239
       vertices: []
       indices: 
       edges: []

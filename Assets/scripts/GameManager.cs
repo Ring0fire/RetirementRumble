@@ -6,36 +6,36 @@ public class GameManager : MonoBehaviour
 {
 	public PlayerController thePlayer; 
 	public EnemyController theEnemy;
-
+	public AttackGlossary attList;
+	public Spawner theSpawner;
+	
+	public float playerAttack;
+	public float enemyAttack;
+	
 	private Vector3 playerStartPoint;
-	private int playerHP;
-	private int enemyHP;
+	public Vector3 currentPlayerPos;
+	public float attackerDmg;
+	public float damageToTake;
+
+
+	public LayerMask hitBox;
+	public LayerMask hurtBox;
    
    // Start is called before the first frame update
     void Start()
     {
         playerStartPoint = thePlayer.transform.position;
-    }
+		
 
+	}
     // Update is called once per frame
     void Update()
     {
-		
-    }
+	playerAttack = thePlayer.playerDamage * attList.PlayerDamageMod;
+	attackerDmg = playerAttack;
+	currentPlayerPos = thePlayer.transform.position;
 	
-	public void takeDamage()
-	{
-		playerHP = (thePlayer.healthPoints - theEnemy.damage);
-		thePlayer.healthPoints = playerHP;
-	}
-	public void doDamage()
-	{
-		enemyHP = (theEnemy.healthPoints - thePlayer.playerDamage);
-		theEnemy.healthPoints = enemyHP;		
-	}
-	public void enemyDeath()
-	{
-		theEnemy.gameObject.SetActive(false);
-	}
-		
+	enemyAttack = attList.enemyStndDmg ;
+	}	
+	
 }

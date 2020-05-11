@@ -6,76 +6,81 @@ public class PlayerController : MonoBehaviour
 {
 		public float moveSpeed;
 		public Rigidbody2D myRigidbody;
-		public CircleCollider2D myFistCollider;
 		public AttackGlossary attList;
 	
-		public int maxHealth = 10;
-		public int healthPoints;
-		public int playerDamage = 2;
+		public int maxHealth;
+		public float healthPoints;
+		public float playerDamage = 2f;
+		
+		public GameObject pHitBox;
+
 		public GameManager theGameManager;
-		//public float punchDuration;
 		
 		private float horizontalMovement;
 		private float verticalMovement;
 //		private float timeHitBoxActive;
 		public bool isAttacking;
+		public bool isDefending;
 		public bool isHit;
 		
 		private Animator myAnimator;
 		private bool isMoving;
+//		public bool punching;
 		
 	void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D > ();
-		myFistCollider = GetComponent<CircleCollider2D > ();
 		myAnimator = GetComponent<Animator>();
-
+		
+		//hitBoxReturn = GetComponentInChildren<BoxCollider2D>();
 		
 		healthPoints = maxHealth;
-		myFistCollider.offset = new Vector2 (myRigidbody.transform.position.x, myRigidbody.transform.position.y + 0.5f);
+		pHitBox.transform.localScale = new Vector2 (myRigidbody.transform.position.x, myRigidbody.transform.position.y + 0.5f);
 		//timeHitBoxActive = punchDuration;
 		horizontalMovement = 0;
 		verticalMovement = 0;
 		isAttacking = false;
+		//isDefending = false;
 		isHit = false;
 		isMoving = false;
+		
 	}
 
     // Update is called once per frame
     void Update()
     {	
 
+		if(Input.GetKeyDown(KeyCode.Space) && !isAttacking)
+		{
+				attList.Punch();	
+		}
 		
-		if(Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+		if((Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) &&!isAttacking)
 		{
 			horizontalMovement = -1 * moveSpeed;
 		}
-			else if(Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+			else if((Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A)) &&!isAttacking)
 			{
 				horizontalMovement = moveSpeed;
 			}
-			else if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A) )
+			else if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A) || isAttacking )
 			{
 				horizontalMovement = 0;
 			}	
 			
-		if(Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+		if((Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S)) && !isAttacking)
 		{
 			verticalMovement = (moveSpeed) / 3;
 		}
-			else if(Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
+			else if((Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W)) && !isAttacking)
 			{
 				verticalMovement = (-1 * moveSpeed) / 3;
 			}
-			else if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) )
+			else if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S) || isAttacking)
 			{
 				verticalMovement = 0;
 			}	
-		if(Input.GetKeyDown(KeyCode.Space) && !isAttacking)
-		{
-			attList.Punch();	
-		
-		}
+	
 			
 		myRigidbody.velocity = new Vector2 (horizontalMovement ,verticalMovement);
 		
@@ -87,19 +92,16 @@ public class PlayerController : MonoBehaviour
 			{
 				isMoving = false;
 			}
-		//	myAnimator.SetFloat("SideSpeed", horizontalMovement);
 			myAnimator.SetBool("Moving", isMoving);
 			myAnimator.SetBool("Punching", isAttacking);
-		//	myAnimator.SetBool("PlayerHit", isHit);
-		
 	}
-	
-	void OnCollisionEnter2D (Collision2D other)
-	{
-		if (other.gameObject.tag == "Enemy")
+		void OnCollisionEnter2D (Collision2D other)
 		{
-			theGameManager.takeDamage();
+			if (other.gameObject.tag == "hitBox" )
+			{
+				healthPoints = (healthPoints - theGameManager.enemyAttack);
+				myAnimator.SetTrigger("PlayerHit");
+			}
+
 		}
-		
-	}
 }

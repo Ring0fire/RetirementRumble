@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - hitBox
+  - hurtBox
+  - spawnPnt
+  - circleDetector
+  - PlayerRange
   layers:
   - Default
   - TransparentFX
@@ -14,10 +19,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - GenericHitBox
+  - GenericHurtBox
+  - PlayerHitBox
+  - PlayerHurtBox
   - 
   - 
   - 
@@ -41,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: simpleUI
+    uniqueID: 2609387123
     locked: 0
