@@ -39,7 +39,7 @@ void Start()
 
 			}	
 		}
-		if(theEnemy.isHostile)
+	/*	if(theEnemy.isHostile)
 		{
 			eHitBoxTimer -= Time.deltaTime;
 			 if (eHitBoxTimer <=0 )
@@ -51,8 +51,8 @@ void Start()
 
 			}	
 		}
-	}
- 	
+	}*/
+}
 	public void	Punch ()
 	{
 	hitBoxTimer = activeHitBox;	
@@ -61,9 +61,9 @@ void Start()
 	
 	thePlayer.pHitBox.transform.localPosition = new Vector2(.3f,.5f);
 	thePlayer.pHitBox.transform.localScale = new Vector2 (.25f, 0.5f);
-	
 	}
-	public void	enemyPunch ()
+	
+	/*public void	enemyPunch ()
 	{
 	eHitBoxTimer = eHitBoxActive;	
 	theEnemy.isHostile = true;
@@ -73,5 +73,5 @@ void Start()
 	theEnemy.eHitBox.transform.localScale = new Vector2 (-.25f, 0.5f);
 	
 	}
-
+*/
 }

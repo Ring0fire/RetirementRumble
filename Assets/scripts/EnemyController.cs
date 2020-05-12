@@ -72,7 +72,6 @@ public class EnemyController : MonoBehaviour
 	}	
 	void FixedUpdate()
 	{	
-	
 	debugMarker.transform.position =  new Vector2 (enemyMoveTarget.x,enemyMoveTarget.y);
 		horzMvmt = curEnemyMvTarg.x - transform.position.x;
 		vertMvmt = curEnemyMvTarg.y - transform.position.y;
@@ -96,8 +95,6 @@ public class EnemyController : MonoBehaviour
 			healthPoints = (healthPoints - theGameManager.attackerDmg);
 			myAnimator.SetTrigger("EnemyHit");
 		}
-	//	else if (other.gameObject.tag == "Player")
-	
 	}
 	void OnTriggerEnter2D (Collider2D col)
 	{
@@ -105,17 +102,16 @@ public class EnemyController : MonoBehaviour
 		{
 			enemyMoveTarget = col.GetComponent<Collider2D>().transform.position;
 		}
-		else if (col.gameObject.tag == "Player")
+/*		else if (col.gameObject.tag == "Player")
 		{
 			attList.enemyPunch();
-		}
+		}*/
 	}
 	void EnemyMovement()
 	{	
 		if(vertMvmt !=0 )
 		{
-			movingVert = true;
-			
+			movingVert = true;	
 		}	
 		else if (vertMvmt == 0)
 		{
@@ -126,10 +122,6 @@ public class EnemyController : MonoBehaviour
 		{
 			movingHorz = false;
 		}
-		
-			
-		
-		
 		if(movingVert)
 		{
 		movingHorz = false;	
