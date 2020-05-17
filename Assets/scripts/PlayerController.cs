@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 		public bool isHit;
 		
 		private Animator myAnimator;
-		private bool isMoving;
+		public bool isMoving;
 //		public bool punching;
 		
 	void Start()
@@ -58,10 +58,12 @@ public class PlayerController : MonoBehaviour
 		if((Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) &&!isAttacking)
 		{
 			horizontalMovement = -1 * moveSpeed;
+			transform.localScale = new Vector2 (-1f,1f);
 		}
 			else if((Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A)) &&!isAttacking)
 			{
 				horizontalMovement = moveSpeed;
+				transform.localScale = new Vector2 (1f,1f);
 			}
 			else if(!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A) || isAttacking )
 			{
@@ -101,6 +103,7 @@ public class PlayerController : MonoBehaviour
 			{
 				healthPoints = (healthPoints - theGameManager.enemyAttack);
 				myAnimator.SetTrigger("PlayerHit");
+				Debug.Log(other.gameObject.tag.ToString() + " of " + other.gameObject.name);
 			}
 
 		}

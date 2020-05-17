@@ -16,6 +16,7 @@ public class Spawner : MonoBehaviour
 	private float spawnPositionDiffX;
 	private float spawnPositionDiffY;	
 	
+	public GameObject enemyHealthBar;
 	public Transform spawnPoint;
 	public CircleCollider2D playerDetect;
 	public GameManager theGameManager;
@@ -26,7 +27,6 @@ public class Spawner : MonoBehaviour
     void Start()
     {
 		spawnTimer = timeBetweenSpawn;
-	//	spawnPositionDiffX = 
 	}
 
     // Update is called once per frame
@@ -45,10 +45,11 @@ public class Spawner : MonoBehaviour
 		}
 	
     }
-	void Spawn()
+	public void Spawn()
 	{
 		spawnPositionDiffX = Random.Range (spawnTransformDiff, -spawnTransformDiff);
 		spawnPositionDiffY = Random.Range (spawnTransformDiff/3, -spawnTransformDiff/3);
+		
 		
 		GameObject obj = (GameObject) Instantiate (pooledEnemy);
 		objSpawnCounter++;
@@ -59,7 +60,6 @@ public class Spawner : MonoBehaviour
 			{
 				gameObject.SetActive(false);
 			}
-		
 	}
 	
 	void OnTriggerEnter2D (Collider2D other)

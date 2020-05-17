@@ -43,11 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1782d8436a43d4f46bb6f23bf94b03e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDownTime: 0
   activeHitBox: 0.5
+  coolDownTime: 1
+  eHitBoxShape: {x: 0.3, y: 0.5}
+  eHbsX: 0
+  eHbsY: 0
   eHitBoxActive: 0.5
-  thePlayer: {fileID: 0}
-  theEnemy: {fileID: 0}
-  theGameManager: {fileID: 0}
+  thePlayer: {fileID: 1682224708, guid: 43b236d6dbda8634da99ad3be6050fe8, type: 3}
+  theEnemy: {fileID: 4683655948090040654, guid: bfb40ae7d9534094dafaf1d02528e0c7,
+    type: 3}
+  theGameManager: {fileID: 2431826775719588511, guid: 5728e4126c4296044b27b6c436b92659,
+    type: 3}
   PlayerDamageMod: 0
   enemyStndDmg: 2

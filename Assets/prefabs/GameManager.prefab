@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2431826775719588510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.001914084, y: -0.683568, z: -12.061523}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,17 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf9c7fd57afc6aa44898fc32ce9dc804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 0}
-  theEnemy: {fileID: 0}
-  attList: {fileID: 0}
+  thePlayer: {fileID: 1682224708, guid: 43b236d6dbda8634da99ad3be6050fe8, type: 3}
+  theEnemy: {fileID: 4683655948090040654, guid: bfb40ae7d9534094dafaf1d02528e0c7,
+    type: 3}
+  attList: {fileID: 1290992834262838502, guid: 3a144ba296c0a44478a8f1d22843c854, type: 3}
   theSpawner: {fileID: 0}
+  theGUI: {fileID: 0}
   playerAttack: 0
-  currentPlayerPos: {x: 0, y: 0, z: 0}
+  enemyAttack: 0
+  currentPlayerPos: {x: 0, y: 0}
   attackerDmg: 0
   damageToTake: 0
-  hitBox:
-    serializedVersion: 2
-    m_Bits: 256
-  hurtBox:
-    serializedVersion: 2
-    m_Bits: 512
