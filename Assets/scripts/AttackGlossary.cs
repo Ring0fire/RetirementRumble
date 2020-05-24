@@ -53,7 +53,7 @@ void Start()
 	
 	thePlayer.pHitBox.transform.localPosition = new Vector2(0.3f,0.5f);
 	thePlayer.pHitBox.transform.localScale = new Vector2 (0.25f, 0.5f);
-	//		Debug.Log ("I want to punch");
+			Debug.Log ("I want to punch");
 	}
 	public void ePunch()
 	{

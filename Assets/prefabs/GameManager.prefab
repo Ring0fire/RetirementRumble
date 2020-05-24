@@ -43,11 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf9c7fd57afc6aa44898fc32ce9dc804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 1682224708, guid: 43b236d6dbda8634da99ad3be6050fe8, type: 3}
-  theEnemy: {fileID: 4683655948090040654, guid: bfb40ae7d9534094dafaf1d02528e0c7,
-    type: 3}
-  attList: {fileID: 1290992834262838502, guid: 3a144ba296c0a44478a8f1d22843c854, type: 3}
-  theSpawner: {fileID: 0}
+  thePlayer: {fileID: 0}
+  theEnemy: {fileID: 0}
+  attList: {fileID: 0}
   theGUI: {fileID: 0}
   playerAttack: 0
   enemyAttack: 0

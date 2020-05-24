@@ -13,38 +13,45 @@ public class EnemyController : MonoBehaviour
 	public float enemyMoveSpeed;
 	
 	public float attCoolDownTimer;
-	public float eHitBoxTimer;
+	private float eHitBoxTimer;
+	private float despawnTimer;
 	
 	public GameObject eHitBox;
 	public Transform debugMarker;
+//	public Transform attRange;
 	
 	public Vector2 enemyMoveTarget;
 	private Vector2 curEnemyMvTarg;
+	
+	public Transform enBoundpA;
+	
 	public float vertMvmt;
 	public float horzMvmt;
 	
-//	public GameObject enemyHealthBar;
+	public GameObject enemyHealthBar;
+	public GameObject enemyHp;
 	
 	public Rigidbody2D myRigidbody;
 	public CircleCollider2D playerDetect;
 	
-	
 	public AttackGlossary attList;
 	
+	private float recTE;
 	private float enemyHealth;
-//	private float recTE;
 	public Animator myAnimator;
-//	private float despawnTimer = 1f;
-	
+	public LayerMask PlayerHurtBox;
+
 	public bool isHostile;
 	public bool enemyIsAtt;
 	public bool closeEnoughToAttack;
 	public bool movingVert;
 	public bool movingHorz;
+	
     // Start is called before the first frame update
     void Start()
     {
 	//	eHitBox.transform.localPosition = new Vector2 (-0.3f,0.5f);
+		despawnTimer = .5f;
 		isHostile = false;
 		enemyIsAtt = false;
 		closeEnoughToAttack = false;
@@ -53,29 +60,29 @@ public class EnemyController : MonoBehaviour
    		myAnimator = GetComponent<Animator>();
 		playerDetect = GetComponent<CircleCollider2D>();
 		eHitBox.transform.localScale = new Vector2 (0, 0.5f);
-	//	recTE = gameObject.GetComponentInChildren<RectTransform>().sizeDelta.x;
+		recTE = enemyHp.GetComponent<RectTransform>().sizeDelta.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-		closeEnoughToAttack = (Mathf.Abs(theGameManager.currentPlayerPos.x - transform.position.x) < 0.75f);
-	/* to be fixed with updating enemy health
-	
-	
-		if (Mathf.Abs(theGameManager.thePlayer.transform.position.x - transform.position.x) < 0.9f)
+/*	
+		if ((Mathf.Abs(theGameManager.thePlayer.transform.position.x - transform.position.x) < 0.75f)&& (Mathf.Abs(theGameManager.thePlayer.transform.position.y - transform.position.y) < 0.25f))
 		{
 			closeEnoughToAttack = true;			
-			Debug.Log("The player should be at " + theGameManager.thePlayer.transform.position.x + " and the enemy should be at " + transform.position.x );
+		//	Debug.Log("The player should be at " + theGameManager.thePlayer.transform.position.x + " and the enemy should be at " + transform.position.x );
 		}
-		else if(Mathf.Abs(theGameManager.thePlayer.transform.position.x - transform.position.x) > 0.9f)
+		else if(Mathf.Abs(theGameManager.thePlayer.transform.position.x - transform.position.x) > 0.75f && (Mathf.Abs(theGameManager.thePlayer.transform.position.y - transform.position.y) > 0.25f))
 		{
 			closeEnoughToAttack = false;
-		}*/
-	/*	if(healthPoints < enemyMaxHealth)
+		}
+	*/
+		if(healthPoints < enemyMaxHealth)
 		{
+			enemyHealthBar.SetActive(true);
+			enemyHp.SetActive(true);
 			enemyHp.transform.localScale = new Vector2 (enemyPercHP , 1f);
-			enemyHp.transform.localPosition = new Vector2 ((enemyHpBar.transform.localPosition.x +(recTE/2)) - ((enemyPercHP * recTE) /2),enemyHp.transform.localPosition.y);
+			enemyHp.transform.localPosition = new Vector2 ((enemyHealthBar.transform.localPosition.x +(recTE/2)) - ((enemyPercHP * recTE) /2),enemyHp.transform.localPosition.y);
 		}	
 			
 		if (healthPoints <= 0)
@@ -89,69 +96,88 @@ public class EnemyController : MonoBehaviour
 				gameObject.SetActive(false);
 			}
 		}
-	enemyHealth	 = healthPoints;
-	enemyPercHP = enemyHealth / enemyMaxHealth;*/
-	myAnimator.SetBool("EnemyAttack",enemyIsAtt);
-	}	
-	void FixedUpdate()
-	{			
+		enemyHealth	 = healthPoints;
+		enemyPercHP = enemyHealth / enemyMaxHealth;
+		myAnimator.SetBool("EnemyAttack",enemyIsAtt);
 		
-		debugMarker.transform.position =  new Vector2 (curEnemyMvTarg.x,curEnemyMvTarg.y);
+		
+//		debugMarker.transform.position =  new Vector2 (curEnemyMvTarg.x,curEnemyMvTarg.y);
 		horzMvmt = curEnemyMvTarg.x - transform.position.x;
 		vertMvmt = curEnemyMvTarg.y - transform.position.y;
+	
+		closeEnoughToAttack = Physics2D.OverlapCircle( enBoundpA.position ,.2f, PlayerHurtBox);
 		
-		if (attCoolDownTimer > 0)
-		{
-			attCoolDownTimer -= Time.deltaTime;
-			if (attCoolDownTimer <= 0)
+		if (isHostile)
+		{	
+			if(closeEnoughToAttack)
 			{
-				attCoolDownTimer = 0;
-			}
-		}
-		if (closeEnoughToAttack && isHostile)
-		{
-			if (attCoolDownTimer <= 0)
-			{
-				enemyIsAtt = true;
 				EnemyAttack();
 			}
+			else if (!closeEnoughToAttack)
+			{
+				curEnemyMvTarg = enemyMoveTarget;
+			}	
 		}
-	
-		if(eHitBoxTimer > 0)
+		if (attCoolDownTimer > 0 && eHitBoxTimer ==0)
 		{
-		curEnemyMvTarg.x = transform.position.x;
-			eHitBoxTimer -= Time.deltaTime;
+			attCoolDownTimer -= Time.deltaTime;
+		}	
+		else if (attCoolDownTimer <= 0)
+		{
+			attCoolDownTimer = 0;
+		}
+		if(enemyIsAtt)
+		{
+		eHitBoxTimer -= Time.deltaTime;	
+	//	curEnemyMvTarg =  Vector2.Lerp (transform.position, theGameManager.currentPlayerPos, .75f);
+		
+		
 			if (eHitBoxTimer <=0 )
 			 {
 				eHitBoxTimer = 0;
-				attCoolDownTimer = attList.coolDownTime;
+			//	attCoolDownTimer = attList.coolDownTime;
 				eHitBox.SetActive (false);
 				eHitBox.transform.localPosition = new Vector2 (-0.3f,0.5f);
 				eHitBox.transform.localScale = new Vector2 (0.1f, 0.1f);
 				enemyIsAtt = false;
-			 }
-		}
-			if(curEnemyMvTarg.x == transform.position.x && curEnemyMvTarg.y == transform.position.y)
-			{
-				movingHorz = false;
-				movingVert = false;
-				
-				if(!isHostile)
-				{
-					curEnemyMvTarg = enemyMoveTarget;
-				}
+			//	attCoolDownTimer -=Time.deltaTime;
 			}
+		}
+		else if(!enemyIsAtt)
+		{
+			if (attCoolDownTimer > 0)
+				{
+				//	enemyIsAtt = false;
+					attCoolDownTimer -= Time.deltaTime;
+				}	
+				if (attCoolDownTimer <= 0)
+				{
+					attCoolDownTimer = 0;
+				}
+		}
+		if(curEnemyMvTarg.x == transform.position.x && curEnemyMvTarg.y == transform.position.y)
+		{
+			movingHorz = false;
+			movingVert = false;	
+			if(!isHostile)
+			{
+				curEnemyMvTarg = enemyMoveTarget;
+			}
+		}
 		if (curEnemyMvTarg.x != transform.position.x || curEnemyMvTarg.y != transform.position.y)
 		{
 			EnemyMovement();
+		//	debugMarker.transform.position =  new Vector2 (curEnemyMvTarg.x,curEnemyMvTarg.y);
 		}	
+		myAnimator.SetBool("EnemyAttack",enemyIsAtt);
 	}
 	
 	void OnCollisionEnter2D (Collision2D other)
 	{
-		if (other.gameObject.tag == "hitBox" )
+		if (other.gameObject.tag == "playerHitBox" )
 		{
 			healthPoints = (healthPoints - theGameManager.attackerDmg);
+			attCoolDownTimer = (attList.coolDownTime);	
 			myAnimator.SetTrigger("EnemyHit");
 		}
 	}
@@ -159,54 +185,41 @@ public class EnemyController : MonoBehaviour
 	{
 		if ((col.gameObject.tag == "PlayerRange"))
 		{
-			enemyMoveTarget = col.GetComponent<Collider2D>().transform.position;
-		//	enemyMoveTarget = theGameManager.currentPlayerPos;
-		}
-		if (col.gameObject.tag == "playerHurtBox")
-		{
+			enemyMoveTarget = GameObject.FindWithTag("Player").transform.position;
 			isHostile = true;
-			curEnemyMvTarg.y = theGameManager.currentPlayerPos.y;
-			Debug.Log ("hostile y correction");
+			Debug.Log ( GameObject.FindWithTag("Player").transform.position.ToString());
 		}
+
 	}
 	void OnTriggerExit2D (Collider2D col2d)
 	{
-		if (col2d.gameObject.tag == "playerHurtBox")
+		if (col2d.gameObject.tag == "PlayerRange")
 		{
 			isHostile = false;
-			movingHorz = false;
-			closeEnoughToAttack = false;
 		}
 	}
-	
 	void EnemyMovement()
 	{	
-		if(vertMvmt != 0 )
+		if(horzMvmt != 0 )
 		{
-			movingVert = true;	
+			movingHorz = true;	
 			
 		}	
-		else if (Mathf.Approximately(vertMvmt, 0f) )
-		{
-			movingVert = false;
-			vertMvmt = 0;
-			movingHorz = true;
-			
-		}
-		else if(Mathf.Approximately(horzMvmt, 0f))
+		else if (Mathf.Approximately(horzMvmt, 0f) )
 		{
 			movingHorz = false;
-			horzMvmt  = 0;
+			horzMvmt = 0;
+			movingVert = true;	
 		}
-		if(movingVert)
+		else if(Mathf.Approximately(vertMvmt, 0f))
 		{
-		transform.position = Vector2.MoveTowards (transform.position, new Vector2 (transform.position.x,curEnemyMvTarg.y),  (enemyMoveSpeed /2) * Time.deltaTime);
-		Debug.Log ("moving vert");
-		}		
-		 else if(movingHorz)
+			movingVert = false;
+			vertMvmt  = 0;
+		}
+		 if(movingHorz)
 		{	
-			transform.position = Vector2.MoveTowards (transform.position, new Vector2 (curEnemyMvTarg.x, curEnemyMvTarg.y),  enemyMoveSpeed * Time.deltaTime);	
-			Debug.Log ("moving horz");
+			transform.position = Vector2.MoveTowards (transform.position, new Vector2 (curEnemyMvTarg.x, transform.position.y),  enemyMoveSpeed * Time.deltaTime);	
+
 			if(curEnemyMvTarg.x < transform.position.x)
 			{
 				transform.localScale = new Vector2 (1,1);
@@ -216,20 +229,31 @@ public class EnemyController : MonoBehaviour
 				transform.localScale = new Vector2 (-1,1);
 			}
 		}
+		else if(movingVert)
+		{
+		transform.position = Vector2.MoveTowards (transform.position, new Vector2 (curEnemyMvTarg.x, curEnemyMvTarg.y),  (enemyMoveSpeed /2) * Time.deltaTime);
+	//	Debug.Log ("moving vert");
+		}
 	}
 	void EnemyAttack ()
 	{	
 		movingHorz =false;
 		movingVert =false;
+		enemyIsAtt = true;
 		attList.ePunch();
 		eHitBox.SetActive(true);
-		eHitBoxTimer = attList.eHitBoxActive;
-	//	attCoolDownTimer = attList.coolDownTime;
+	
+		if (eHitBoxTimer ==0 && attCoolDownTimer == 0)
+		{
+			attCoolDownTimer = attList.coolDownTime;	
+				eHitBoxTimer = attList.eHitBoxActive;
+		}
+
 		curEnemyMvTarg = transform.position;
 		eHitBox.transform.localScale = new Vector2 (attList.eHitBoxShape.x, attList.eHitBoxShape.y);
 		eHitBox.transform.localPosition = new Vector2 (-0.3f,0.5f);
 	//	Debug.Log ("I punch now");
-
 	}
+
 }
 

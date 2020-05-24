@@ -16,7 +16,6 @@ public class Spawner : MonoBehaviour
 	private float spawnPositionDiffX;
 	private float spawnPositionDiffY;	
 	
-	public GameObject enemyHealthBar;
 	public Transform spawnPoint;
 	public CircleCollider2D playerDetect;
 	public GameManager theGameManager;
@@ -27,11 +26,12 @@ public class Spawner : MonoBehaviour
     void Start()
     {
 		spawnTimer = timeBetweenSpawn;
+	
 	}
 
     // Update is called once per frame
     void Update()
-    {
+    {	
 		if((objSpawnCounter < spawnCountMax) && canSpawn)
 		{
 		
@@ -43,7 +43,6 @@ public class Spawner : MonoBehaviour
 					spawnTimer += timeBetweenSpawn;
 				}
 		}
-	
     }
 	public void Spawn()
 	{
@@ -51,20 +50,28 @@ public class Spawner : MonoBehaviour
 		spawnPositionDiffY = Random.Range (spawnTransformDiff/3, -spawnTransformDiff/3);
 		
 		
-		GameObject obj = (GameObject) Instantiate (pooledEnemy);
+		GameObject foe = (GameObject) Instantiate (pooledEnemy);
 		objSpawnCounter++;
-		obj.transform.position = new Vector2 (spawnPoint.transform.position.x + spawnPositionDiffX, spawnPoint.transform.position.y + spawnPositionDiffY);
-		obj.SetActive(true);
-		
+		foe.transform.position = new Vector2 (spawnPoint.transform.position.x + spawnPositionDiffX, spawnPoint.transform.position.y + spawnPositionDiffY);
+		foe.SetActive(true);
 			if(objSpawnCounter >= spawnCountMax)
 			{
-				gameObject.SetActive(false);
+				canSpawn = false;
+				gameObject.transform.localScale = new Vector2 (0f,0f);
 			}
 	}
 	
+	public void ResetSpawn()
+	{
+	
+		
+		objSpawnCounter = 0;
+		
+		gameObject.transform.localScale = new Vector2 (1f,1f);
+	}
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.gameObject.tag == "Player")
+		if ((other.gameObject.tag == "Player") &&(objSpawnCounter < spawnCountMax))
 		{
 			canSpawn = true;	
 		}
@@ -76,5 +83,4 @@ public class Spawner : MonoBehaviour
 			canSpawn = false;	
 		}
 	}
-	
 }

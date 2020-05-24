@@ -1,43 +1,55 @@
 fileFormatVersion: 2
-guid: 02aa14fa2b6ac7041a7ff24aa6d6859c
+guid: c755a009fa4f0a144ba5236c16e792a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7013060320966725382
-    second: RetirmentRumbleTestSprites_0
+      213: -1616207093548072406
+    second: tallBuildingTop
   - first:
-      213: -3712933915446570815
-    second: RetirmentRumbleTestSprites_1
+      213: 91684741816180596
+    second: tallBldSdAlly
   - first:
-      213: -4929199297338864851
-    second: RetirmentRumbleTestSprites_2
+      213: 7465602439760883184
+    second: shortBuildingTop
   - first:
-      213: 5213567422089682104
-    second: RetirmentRumbleTestSprites_3
+      213: 3236433958019215781
+    second: barTopHalf
   - first:
-      213: 6284778026664109829
-    second: RetirmentRumbleTestSprites_4
+      213: -8731339814765079323
+    second: building1Btm
   - first:
-      213: -230828560502810815
-    second: RetirmentRumbleTestSprites_5
+      213: 2329435353318599473
+    second: allyway
   - first:
-      213: -8871951396982099343
-    second: RetirmentRumbleTestSprites_6
+      213: 8752343283143033523
+    second: building2Btm
   - first:
-      213: 695638734151641816
-    second: RetirmentRumbleTestSprites_7
+      213: 6678060926912774415
+    second: barBuildingHalf
   - first:
-      213: 298598025495993976
-    second: RetirmentRumbleTestSprites_8
+      213: 2313509725370141408
+    second: street1
   - first:
-      213: -4323226250543553976
-    second: RetirmentRumbleTestSprites_9
+      213: -614982855397670745
+    second: street2
   - first:
-      213: -3169666729840458592
-    second: RetirmentRumbleTestSprites_10
+      213: 8093095502139977718
+    second: street3
   - first:
-      213: -536515394287694172
-    second: RetirmentRumbleTestSprites_11
+      213: 6401834280231318109
+    second: startOrEnd
+  - first:
+      213: 1470011398680265827
+    second: backgroundDay
+  - first:
+      213: -6491631724548954602
+    second: backgroundNight
+  - first:
+      213: 589881358366218773
+    second: backgroundCitySkyline
+  - first:
+      213: -6011882224734985459
+    second: allyFenceSide
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -98,7 +110,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 256
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -110,7 +122,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 256
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -122,7 +134,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Windows Store Apps
     maxTextureSize: 256
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -134,7 +146,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 256
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -146,7 +158,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 256
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -159,7 +171,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_0
+      name: tallBuildingTop
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a22c99126341299e0800000000000000
+      internalID: -1616207093548072406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tallBldSdAlly
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47fd64379cab54100800000000000000
+      internalID: 91684741816180596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shortBuildingTop
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fdac305dd52b9760800000000000000
+      internalID: 7465602439760883184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barTopHalf
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a13fb6998f1aec20800000000000000
+      internalID: 3236433958019215781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: building1Btm
       rect:
         serializedVersion: 2
         x: 0
@@ -173,19 +269,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60fcb938435635160800000000000000
-      internalID: 7013060320966725382
+      spriteID: 5e4d3b7f2bc04d680800000000000000
+      internalID: -8731339814765079323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_1
+      name: allyway
       rect:
         serializedVersion: 2
-        x: 64
+        x: 65
         y: 128
-        width: 64
+        width: 63
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -194,14 +290,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c09e4f9642097cc0800000000000000
-      internalID: -3712933915446570815
+      spriteID: 13baac9ac11d35020800000000000000
+      internalID: 2329435353318599473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_2
+      name: building2Btm
       rect:
         serializedVersion: 2
         x: 128
@@ -215,14 +311,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2b0307ea57f79bb0800000000000000
-      internalID: -4929199297338864851
+      spriteID: 3b2440818d1967970800000000000000
+      internalID: 8752343283143033523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_3
+      name: barBuildingHalf
       rect:
         serializedVersion: 2
         x: 192
@@ -236,14 +332,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bc543e92ff4a5840800000000000000
-      internalID: 5213567422089682104
+      spriteID: f014d09f70d3dac50800000000000000
+      internalID: 6678060926912774415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_4
+      name: street1
       rect:
         serializedVersion: 2
         x: 0
@@ -257,14 +353,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 507ae7b2154083750800000000000000
-      internalID: 6284778026664109829
+      spriteID: 0ea491576dc3b1020800000000000000
+      internalID: 2313509725370141408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_5
+      name: street2
       rect:
         serializedVersion: 2
         x: 64
@@ -278,14 +374,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 147173fa5aeebccf0800000000000000
-      internalID: -230828560502810815
+      spriteID: 7a00111f9542777f0800000000000000
+      internalID: -614982855397670745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_6
+      name: street3
       rect:
         serializedVersion: 2
         x: 128
@@ -299,14 +395,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 172f956c53f70e480800000000000000
-      internalID: -8871951396982099343
+      spriteID: 6ff6d5aea73705070800000000000000
+      internalID: 8093095502139977718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_7
+      name: startOrEnd
       rect:
         serializedVersion: 2
         x: 192
@@ -320,14 +416,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8da6c193eb767a900800000000000000
-      internalID: 695638734151641816
+      spriteID: d523b180c52e7d850800000000000000
+      internalID: 6401834280231318109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_8
+      name: backgroundDay
       rect:
         serializedVersion: 2
         x: 0
@@ -341,14 +437,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87e52587255d42400800000000000000
-      internalID: 298598025495993976
+      spriteID: 364cc122497866410800000000000000
+      internalID: 1470011398680265827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_9
+      name: backgroundNight
       rect:
         serializedVersion: 2
         x: 64
@@ -362,14 +458,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84225bc61a0d004c0800000000000000
-      internalID: -4323226250543553976
+      spriteID: 6166a95375719e5a0800000000000000
+      internalID: -6491631724548954602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_10
+      name: backgroundCitySkyline
       rect:
         serializedVersion: 2
         x: 128
@@ -383,29 +479,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a44c7f17e41304d0800000000000000
-      internalID: -3169666729840458592
+      spriteID: 51a1b0958fdaf2800800000000000000
+      internalID: 589881358366218773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RetirmentRumbleTestSprites_11
+      name: allyFenceSide
       rect:
         serializedVersion: 2
-        x: 191
-        y: 0
-        width: 64
+        x: 96
+        y: 192
+        width: 32
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ae04fa671aed88f0800000000000000
-      internalID: -536515394287694172
+      spriteID: d03af2b08f0819ca0800000000000000
+      internalID: -6011882224734985459
       vertices: []
       indices: 
       edges: []

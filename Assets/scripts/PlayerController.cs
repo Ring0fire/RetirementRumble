@@ -97,13 +97,19 @@ public class PlayerController : MonoBehaviour
 			myAnimator.SetBool("Moving", isMoving);
 			myAnimator.SetBool("Punching", isAttacking);
 	}
-		void OnCollisionEnter2D (Collision2D other)
+		void OnTriggerEnter2D (Collider2D other)
 		{
 			if (other.gameObject.tag == "hitBox" )
 			{
 				healthPoints = (healthPoints - theGameManager.enemyAttack);
+			//	theGameManager.theGUI.hpCalculator( maxHealth, healthPoints);
 				myAnimator.SetTrigger("PlayerHit");
-				Debug.Log(other.gameObject.tag.ToString() + " of " + other.gameObject.name);
+			//	Debug.Log(other.gameObject.tag.ToString() + " of " + other.gameObject.name);
+				if (healthPoints <= 0)
+				{
+					gameObject.SetActive(false);
+					theGameManager.GameOver();
+				}
 			}
 
 		}

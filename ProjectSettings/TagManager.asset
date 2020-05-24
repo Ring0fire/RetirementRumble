@@ -11,6 +11,8 @@ TagManager:
   - circleDetector
   - PlayerRange
   - playerHurtBox
+  - inGameGUI
+  - playerHitBox
   layers:
   - Default
   - TransparentFX
@@ -24,7 +26,7 @@ TagManager:
   - GenericHurtBox
   - PlayerHitBox
   - PlayerHurtBox
-  - 
+  - FootLayer
   - 
   - 
   - 
